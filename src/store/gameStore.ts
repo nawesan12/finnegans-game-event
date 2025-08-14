@@ -25,6 +25,6 @@ export const useGameStore = create<GameState>()(
         })),
       resetGame: () => set({ stations: [] }),
     }),
-    { name: "game-progress" },
+    { name: "finnegans-game-progress" },
   ),
 );
