@@ -59,7 +59,14 @@ const ConquistaPage = () => {
   const allCompleted = completedCount === stations.length;
 
   return (
-    <div className="bg-[#04102d] text-white min-h-screen flex flex-col items-center justify-center gap-6 pt-24 p-4">
+    <div className="bg-[#04102d] text-white min-h-screen flex flex-col items-center justify-center gap-6 pt-11 p-4">
+      <section className="rounded-full w-full  text-4xl flex items-center justify-between mb-14 py-2 px-8 bg-[#03001c]">
+        <p style={{ color: station.color }}>Piso</p>
+        <p style={{ color: station.color }} className="text-5xl">
+          {station.floor}
+        </p>
+      </section>
+
       <main className="w-full max-w-sm mx-auto">
         <section
           className="border-2 rounded-4xl"
