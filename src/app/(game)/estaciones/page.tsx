@@ -93,8 +93,14 @@ const App = () => {
         {/* Footer */}
         <footer className="py-6 flex items-center justify-center gap-2">
           <p className="flex items-center font-semibold gap-6 px-6 pr-7 py-px text-lg max-w-max text-white rounded-full border-cyan-400 border-2 bg-cyan-400/20 backdrop-blur-lg">
-            <span>
-              <span>F</span> Conquistas
+            <span className="flex items-center gap-2">
+              <Image
+                src="/finnegans.png"
+                alt="Conquistas"
+                width={17}
+                height={17}
+              />
+              Conquistas
             </span>
             <span>
               {completed.length}/{stations.length}
@@ -104,7 +110,7 @@ const App = () => {
             className={`py-1 text-lg px-6 font-semibold rounded-full max-w-max w-full transition-all duration-300 ${
               allCompleted
                 ? "bg-gradient-to-r from-green-400 to-teal-500 text-white shadow-lg shadow-green-500/30"
-                : "bg-transparent  border-2"
+                : "bg-transparent border-cyan-400 border-2"
             }`}
           >
             {allCompleted ? "¡Completado!" : "Continuar"}
