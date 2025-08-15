@@ -117,7 +117,7 @@ const ConquistaPage = () => {
       )}
 
       {/* Footer */}
-      <footer className="w-full py-6 flex items-center justify-between gap-4">
+      <footer className="w-full pb-6 flex items-center justify-between gap-4">
         <Link
           href="/estaciones"
           className="py-px w-full text-center text-lg px-6 font-semibold rounded-full border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 transition-colors duration-300"
