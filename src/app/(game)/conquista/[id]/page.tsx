@@ -76,12 +76,18 @@ const ConquistaPage = () => {
             <Image
               src={station.icon}
               alt={station.name}
-              width={120}
-              height={120}
-              className="absolute -top-12 left-4 -rotate-12"
+              width={100}
+              height={100}
+              className="absolute"
+              style={{
+                top: station?.position?.top,
+                left: station?.position?.left,
+                rotate: station?.position?.rotation,
+                height: station?.position?.height,
+              }}
             />
             <h2
-              className="text-4xl font-semibold text-right px-8 py-6 "
+              className="text-4xl font-medium text-right px-8 py-10"
               style={{ color: station.color }}
             >
               {station.name}

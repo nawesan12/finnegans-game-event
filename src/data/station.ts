@@ -7,6 +7,12 @@ export type Station = {
   content: string;
   key: string;
   color: string;
+  position?: {
+    top: number;
+    left: number;
+    rotation: string;
+  };
+  height?: number;
 };
 
 export const stations: Station[] = [
@@ -20,6 +26,11 @@ export const stations: Station[] = [
       "Cuidamos cada aspecto de nuestro trabajo y aprendemos sin pausa, para diseñar soluciones que transformen y dejen una huella perdurable.",
     key: "key1",
     color: "#ff92de",
+    position: {
+      top: -48,
+      left: 16,
+      rotation: "-12deg",
+    },
   },
   {
     id: "colaboracion",
@@ -31,6 +42,11 @@ export const stations: Station[] = [
       "Compartimos conocimiento, fomentamos la inclusión y colaboramos con respeto y generosidad, construyendo comunidad a través de la cooperación.",
     key: "key2",
     color: "#fd8100",
+    position: {
+      top: -48,
+      left: 4,
+      rotation: "0deg",
+    },
   },
   {
     id: "compromiso",
@@ -42,6 +58,11 @@ export const stations: Station[] = [
       "Cumplimos nuestras promesas con pasión y transparencia, actuamos con ética y perseveramos ante cualquier desafío para generar un impacto sostenible.",
     key: "key2",
     color: "#008584",
+    position: {
+      top: -24,
+      left: -16,
+      rotation: "0deg",
+    },
   },
   {
     id: "creatividad",
@@ -53,6 +74,11 @@ export const stations: Station[] = [
       "Exploramos nuevas ideas sin miedo, combinamos saberes diversos y transformamos obstáculos en oportunidades para materializar soluciones originales.",
     key: "key2",
     color: "#ff3f01",
+    position: {
+      top: -32,
+      left: -24,
+      rotation: "0deg",
+    },
   },
   {
     id: "empatia",
@@ -64,6 +90,11 @@ export const stations: Station[] = [
       "Escuchamos activamente, adaptamos nuestro accionar para incluir a todos y promovemos el diálogo abierto como camino para crear valor compartido.",
     key: "key2",
     color: "#3985ff",
+    position: {
+      top: 8,
+      left: -12,
+      rotation: "0deg",
+    },
   },
   {
     id: "liderazgo",
@@ -75,6 +106,11 @@ export const stations: Station[] = [
       "No esperamos el cambio: lo generamos. Guiamos con humildad, valentía y coherencia, inspirando a otros a crecer con cada gesto cotidiano.",
     key: "key2",
     color: "#9fba02",
+    position: {
+      top: -32,
+      left: 24,
+      rotation: "0deg",
+    },
   },
   {
     id: "proposito",
@@ -85,5 +121,10 @@ export const stations: Station[] = [
     content: "Content 2",
     key: "key2",
     color: "#ffca6c",
+    position: {
+      top: 6,
+      left: 32,
+      rotation: "0deg",
+    },
   },
 ];
