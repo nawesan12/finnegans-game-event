@@ -59,11 +59,7 @@ const ConquistaPage = () => {
   const allCompleted = completedCount === stations.length;
 
   return (
-    <div className="bg-[#04102d] text-white min-h-screen flex flex-col items-center justify-center gap-11 p-4">
-      {/* Header placeholder */}
-
-      {/* Modal */}
-
+    <div className="bg-[#04102d] text-white min-h-screen flex flex-col items-center justify-center gap-6 pt-24 p-4">
       <main className="w-full max-w-sm mx-auto">
         <section
           className="border-2 rounded-4xl"
