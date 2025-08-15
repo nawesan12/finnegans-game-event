@@ -65,7 +65,7 @@ const App = () => {
                         />
                       </div>
                       <span
-                        className={`font-medium text-2xl`}
+                        className={`font-medium text-3xl`}
                         style={{ color: station.color }}
                       >
                         {station.name}

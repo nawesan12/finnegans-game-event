@@ -13,6 +13,7 @@ export type Station = {
     rotation: string;
   };
   height?: number;
+  textPosition: string;
 };
 
 export const stations: Station[] = [
@@ -31,6 +32,7 @@ export const stations: Station[] = [
       left: 16,
       rotation: "-12deg",
     },
+    textPosition: "right",
   },
   {
     id: "colaboracion",
@@ -47,6 +49,7 @@ export const stations: Station[] = [
       left: 4,
       rotation: "0deg",
     },
+    textPosition: "center",
   },
   {
     id: "compromiso",
@@ -59,10 +62,11 @@ export const stations: Station[] = [
     key: "key2",
     color: "#008584",
     position: {
-      top: -24,
+      top: -56,
       left: -16,
       rotation: "0deg",
     },
+    textPosition: "left",
   },
   {
     id: "creatividad",
@@ -79,6 +83,7 @@ export const stations: Station[] = [
       left: -24,
       rotation: "0deg",
     },
+    textPosition: "center",
   },
   {
     id: "empatia",
@@ -91,10 +96,11 @@ export const stations: Station[] = [
     key: "key2",
     color: "#3985ff",
     position: {
-      top: 8,
+      top: -8,
       left: -12,
       rotation: "0deg",
     },
+    textPosition: "right",
   },
   {
     id: "liderazgo",
@@ -111,6 +117,7 @@ export const stations: Station[] = [
       left: 24,
       rotation: "0deg",
     },
+    textPosition: "right",
   },
   {
     id: "proposito",
@@ -126,5 +133,6 @@ export const stations: Station[] = [
       left: 32,
       rotation: "0deg",
     },
+    textPosition: "right",
   },
 ];

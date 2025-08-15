@@ -66,7 +66,7 @@ const ConquistaPage = () => {
           style={{ borderColor: station.color }}
         >
           <div
-            className="border-b-2 flex justify-end items-center relative"
+            className="border-b-2  relative"
             style={{ borderColor: station.color }}
           >
             <Image
@@ -74,7 +74,7 @@ const ConquistaPage = () => {
               alt={station.name}
               width={100}
               height={100}
-              className="absolute"
+              className="absolute object-contain"
               style={{
                 top: station?.position?.top,
                 left: station?.position?.left,
@@ -83,8 +83,11 @@ const ConquistaPage = () => {
               }}
             />
             <h2
-              className="text-4xl font-medium text-right px-8 py-6"
-              style={{ color: station.color }}
+              className="text-4xl font-medium px-8 py-6"
+              style={{
+                color: station.color,
+                textAlign: station.textPosition as CanvasTextAlign,
+              }}
             >
               {station.name}
             </h2>
@@ -104,7 +107,7 @@ const ConquistaPage = () => {
         type="text"
         value={inputValue}
         onChange={handleInputChange}
-        className={`w-full mx-auto p-4 rounded-full bg-[#04102d] border-2  text-white text-center text-xl focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300 placeholder-white ${
+        className={`w-full mx-auto p-4 rounded-full bg-[#04102d] border-2  text-white pl-6 text-xl focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300 placeholder-white ${
           error ? "border-red-500" : "border-cyan-400/50"
         }`}
         placeholder="Ingresa aquí la clave"
