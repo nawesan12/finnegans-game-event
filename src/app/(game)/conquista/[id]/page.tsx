@@ -83,7 +83,7 @@ const ConquistaPage = () => {
                 top: station?.position?.top,
                 left: station?.position?.left,
                 rotate: station?.position?.rotation,
-                height: station?.position?.height,
+                height: station?.height || 100,
               }}
             />
             <h2
