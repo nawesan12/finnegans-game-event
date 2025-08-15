@@ -1,210 +1,9 @@
 "use client";
-import { a } from "motion/react-m";
+
 import React, { useState } from "react";
-
-// Helper component for SVG icons. In a real app, these might be separate files.
-const Icon = ({ name, className }: { name: string; className?: string }) => {
-  const icons: { [key: string]: React.ReactNode } = {
-    empathy: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={className}
-      >
-        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="8.5" cy="7" r="4" />
-        <path d="M20 8v6" />
-        <path d="M23 11h-6" />
-      </svg>
-    ),
-    quality: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={className}
-      >
-        <path d="M14.5 4.5A5 5 0 0 0 9 9.5c0 2.22 1.79 4 4 4s4-1.78 4-4c0-1.01-.3-1.94-.8-2.69" />
-        <path d="M12 12.5a2.5 2.5 0 0 1-2.5-2.5c0-1.38 1.12-2.5 2.5-2.5" />
-        <path d="M12 15c-3 0-6 2-6 4v2h12v-2c0-2-3-4-6-4z" />
-      </svg>
-    ),
-    commitment: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={className}
-      >
-        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-        <path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-        <path d="M12 10v.01" />
-      </svg>
-    ),
-    creativity: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={className}
-      >
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-      </svg>
-    ),
-    generosity: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={className}
-      >
-        <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.77-.77-.77a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
-        <path d="M12 5.27L13.22 9l3.5.22-2.68 2.2.95 3.58L12 13.27l-3 .95.95-3.58L7.28 9.22l3.5-.22L12 5.27z"></path>
-      </svg>
-    ),
-    leadership: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={className}
-      >
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-      </svg>
-    ),
-    purpose: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={className}
-      >
-        <path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41l-7.59-7.59a2.41 2.41 0 0 0-3.41 0Z" />
-      </svg>
-    ),
-    check: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={className}
-      >
-        <polyline points="20 6 9 17 4 12"></polyline>
-      </svg>
-    ),
-  };
-  return icons[name] || null;
-};
-
-// Data for the list items
-const stations = [
-  {
-    id: "quality",
-    name: "Calidad",
-    icon: "quality",
-    color: "border-orange-400",
-    iconColor: "text-orange-400",
-    textColor: "text-orange-400",
-  },
-  {
-    id: "generosity",
-    name: "Colaboracion",
-    icon: "generosity",
-    color: "border-blue-500",
-    iconColor: "text-blue-500",
-    textColor: "text-blue-500",
-  },
-  {
-    id: "commitment",
-    name: "Compromiso",
-    icon: "commitment",
-    color: "border-red-500",
-    iconColor: "text-red-500",
-    textColor: "text-red-500",
-  },
-  {
-    id: "creativity",
-    name: "Creatividad",
-    icon: "creativity",
-    color: "border-pink-500",
-    iconColor: "text-pink-500",
-    textColor: "text-pink-500",
-  },
-
-  {
-    id: "empathy",
-    name: "Empatía",
-    icon: "empathy",
-    color: "border-cyan-400",
-    iconColor: "text-cyan-400",
-    textColor: "text-cyan-400",
-  },
-  {
-    id: "leadership",
-    name: "Liderazgo",
-    icon: "leadership",
-    color: "border-green-400",
-    iconColor: "text-green-400",
-    textColor: "text-green-400",
-  },
-  {
-    id: "purpose",
-    name: "Propósito",
-    icon: "purpose",
-    color: "border-yellow-400",
-    iconColor: "text-yellow-400",
-    textColor: "text-yellow-400",
-  },
-];
+import { stations } from "@/data/station";
+import Image from "next/image";
+import { Check } from "lucide-react";
 
 // Main Component
 const App = () => {
@@ -226,8 +25,19 @@ const App = () => {
       <div className="w-full lg:max-w-sm mx-auto flex flex-col ">
         {/* Header */}
         <header className="p-6 text-center ">
-          <h1 className="text-2xl font-bold tracking-wider">
-            Estaciones a descubrir
+          <h1 className="text-3xl font-medium tracking-wider ">
+            Estaciones a &nbsp;
+            <div className="inline-flex relative -left-2 max-w-max">
+              <span>descubrir</span>
+
+              <Image
+                src="/subrayado.png"
+                alt="Finnegans"
+                width={32}
+                height={32}
+                className="w-full absolute -bottom-2"
+              />
+            </div>
           </h1>
         </header>
 
@@ -239,18 +49,24 @@ const App = () => {
               return (
                 <a key={station.id} href={`/conquista/${station.id}`}>
                   <li
-                    className={`flex items-center justify-between p-3 rounded-full border bg-[#1C1A42] transition-all duration-300 ${station.color}`}
+                    className={`flex items-center justify-between px-2 py-2 rounded-full border  transition-all duration-300`}
+                    style={{ borderColor: station.color }}
                   >
                     <div
                       className={`flex flex-row w-full items-center space-x-4 ${!isCompleted ? "w-full justify-between pr-6" : ""}`}
                     >
-                      <div
-                        className={`p-1.5 rounded-full ${station.iconColor}`}
-                      >
-                        <Icon name={station.icon} className="w-6 h-6" />
+                      <div className={`px-4 py-1 rounded-full`}>
+                        <Image
+                          src={station.icon}
+                          alt={station.name}
+                          width={24}
+                          height={24}
+                          className="object-contain size-12"
+                        />
                       </div>
                       <span
-                        className={`font-semibold text-xl ${station.textColor}`}
+                        className={`font-medium text-2xl`}
+                        style={{ color: station.color }}
                       >
                         {station.name}
                       </span>
@@ -264,9 +80,7 @@ const App = () => {
                             : "bg-gray-700"
                         }`}
                       >
-                        {isCompleted && (
-                          <Icon name="check" className="w-5 h-5 text-white" />
-                        )}
+                        {isCompleted && <Check />}
                       </button>
                     )}
                   </li>
@@ -287,7 +101,7 @@ const App = () => {
             </span>
           </p>
           <button
-            className={`py-px text-lg px-6 font-semibold rounded-full max-w-max w-full transition-all duration-300 ${
+            className={`py-1 text-lg px-6 font-semibold rounded-full max-w-max w-full transition-all duration-300 ${
               allCompleted
                 ? "bg-gradient-to-r from-green-400 to-teal-500 text-white shadow-lg shadow-green-500/30"
                 : "bg-transparent border-cyan-400 border-2"
