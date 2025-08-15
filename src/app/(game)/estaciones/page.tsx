@@ -59,8 +59,8 @@ const App = () => {
                         <Image
                           src={station.icon}
                           alt={station.name}
-                          width={24}
-                          height={24}
+                          width={200}
+                          height={200}
                           className="object-contain size-12"
                         />
                       </div>
