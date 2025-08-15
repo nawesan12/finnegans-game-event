@@ -83,7 +83,7 @@ const ConquistaPage = () => {
               }}
             />
             <h2
-              className="text-4xl font-medium text-right px-8 py-10"
+              className="text-4xl font-medium text-right px-8 py-6"
               style={{ color: station.color }}
             >
               {station.name}
