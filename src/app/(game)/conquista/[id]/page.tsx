@@ -104,10 +104,10 @@ const ConquistaPage = () => {
         type="text"
         value={inputValue}
         onChange={handleInputChange}
-        className={`w-full mx-auto p-4 rounded-full bg-[#04102d] border-2  text-white text-center text-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300 ${
+        className={`w-full mx-auto p-4 rounded-full bg-[#04102d] border-2  text-white text-center text-xl focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300 placeholder-white ${
           error ? "border-red-500" : "border-cyan-400/50"
         }`}
-        placeholder="palabra1 palabra2 palabra3"
+        placeholder="Ingresa aquí la clave"
       />
 
       {error && (
