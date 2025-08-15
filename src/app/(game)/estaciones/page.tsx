@@ -25,7 +25,7 @@ const App = () => {
       <div className="w-full lg:max-w-sm mx-auto flex flex-col ">
         {/* Header */}
         <header className="p-6 text-center ">
-          <h1 className="text-3xl font-medium tracking-wider ">
+          <h1 className="text-3xl font-medium tracking-wider whitespace-nowrap">
             Estaciones a &nbsp;
             <div className="inline-flex relative -left-2 max-w-max">
               <span>descubrir</span>
