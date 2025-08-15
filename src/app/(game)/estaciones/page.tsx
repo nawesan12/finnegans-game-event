@@ -21,7 +21,7 @@ const App = () => {
   const allCompleted = completed.length === stations.length;
 
   return (
-    <div className=" bg-[#04102d] text-white min-h-screen flex flex-col items-center justify-center p-4">
+    <div className=" bg-[#04102d] text-white min-h-screen flex flex-col items-center justify-center py-4">
       <div className="w-full lg:max-w-sm mx-auto flex flex-col ">
         {/* Header */}
         <header className="p-6 text-center ">
@@ -104,7 +104,7 @@ const App = () => {
             className={`py-1 text-lg px-6 font-semibold rounded-full max-w-max w-full transition-all duration-300 ${
               allCompleted
                 ? "bg-gradient-to-r from-green-400 to-teal-500 text-white shadow-lg shadow-green-500/30"
-                : "bg-transparent border-cyan-400 border-2"
+                : "bg-transparent  border-2"
             }`}
           >
             {allCompleted ? "¡Completado!" : "Continuar"}
