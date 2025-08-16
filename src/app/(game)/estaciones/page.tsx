@@ -163,7 +163,7 @@ const App = () => {
             }
             transition={{ repeat: allCompleted ? Infinity : 0, duration: 1.5 }}
           >
-            {allCompleted ? "¡Completado!" : "Continuar"}
+            {allCompleted ? "¡Seguir!" : "Continuar"}
           </motion.button>
         </footer>
       </div>

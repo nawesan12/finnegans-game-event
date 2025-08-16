@@ -25,7 +25,7 @@ export const stations: Station[] = [
     subtitle: "Excelencia en cada detalle",
     content:
       "Cuidamos cada aspecto de nuestro trabajo y aprendemos sin pausa, para diseñar soluciones que transformen y dejen una huella perdurable.",
-    key: "key1",
+    key: "calidad",
     color: "#ff92de",
     position: {
       top: -48,
@@ -42,7 +42,7 @@ export const stations: Station[] = [
     subtitle: "Crecer en equipo",
     content:
       "Compartimos conocimiento, fomentamos la inclusión y colaboramos con respeto y generosidad, construyendo comunidad a través de la cooperación.",
-    key: "key2",
+    key: "colaboracion",
     color: "#fd8100",
     position: {
       top: -48,
@@ -59,7 +59,7 @@ export const stations: Station[] = [
     subtitle: "Acción con propósito",
     content:
       "Cumplimos nuestras promesas con pasión y transparencia, actuamos con ética y perseveramos ante cualquier desafío para generar un impacto sostenible.",
-    key: "key2",
+    key: "compromiso",
     color: "#008584",
     position: {
       top: -56,
@@ -76,7 +76,7 @@ export const stations: Station[] = [
     subtitle: "Creando con impacto",
     content:
       "Exploramos nuevas ideas sin miedo, combinamos saberes diversos y transformamos obstáculos en oportunidades para materializar soluciones originales.",
-    key: "key2",
+    key: "creatividad",
     color: "#ff3f01",
     position: {
       top: -32,
@@ -93,7 +93,7 @@ export const stations: Station[] = [
     subtitle: "Conexión Genuina",
     content:
       "Escuchamos activamente, adaptamos nuestro accionar para incluir a todos y promovemos el diálogo abierto como camino para crear valor compartido.",
-    key: "key2",
+    key: "empatia",
     color: "#3985ff",
     position: {
       top: -8,
@@ -110,7 +110,7 @@ export const stations: Station[] = [
     subtitle: "Somos ejemplo",
     content:
       "No esperamos el cambio: lo generamos. Guiamos con humildad, valentía y coherencia, inspirando a otros a crecer con cada gesto cotidiano.",
-    key: "key2",
+    key: "liderazgo",
     color: "#9fba02",
     position: {
       top: -32,
@@ -126,7 +126,7 @@ export const stations: Station[] = [
     icon: "/proposito.png",
     subtitle: "Somos ejemplo",
     content: "Content 2",
-    key: "key2",
+    key: "proposito",
     color: "#ffca6c",
     position: {
       top: 6,
