@@ -6,16 +6,27 @@ import Image from "next/image";
 import { Check } from "lucide-react";
 import ProgressTracker from "@/components/ProgressTracker";
 import { useGameStore } from "@/store/gameStore";
+import { useRouter } from "next/navigation";
 
 // Main Component
 const App = () => {
   // State to track completed stations
   const { stations: stationsProgress } = useGameStore();
+  const router = useRouter();
 
   const allCompleted =
     stationsProgress.filter((e) => e.completed).length === stations.length;
 
-  console.log(stationsProgress);
+  const handleContinue = () => {
+    const nextStation = stations.find((station) => {
+      const progress = stationsProgress.find((s) => s.id === station.id);
+      return !progress?.completed;
+    });
+
+    if (nextStation) {
+      router.push(`/conquista/${nextStation.id}`);
+    }
+  };
 
   return (
     <div className=" bg-[#04102d] text-white min-h-screen flex flex-col items-center justify-center py-4">
@@ -105,6 +116,8 @@ const App = () => {
         <footer className="py-6  flex items-center justify-center gap-2 px-4">
           <ProgressTracker completedCount={stationsProgress.length} />
           <button
+            onClick={handleContinue}
+            disabled={allCompleted}
             className={`py-1 text-lg px-6 font-semibold rounded-full max-w-max w-full transition-all duration-300 ${
               allCompleted
                 ? "bg-gradient-to-r from-green-400 to-teal-500 text-white shadow-lg shadow-green-500/30"
