@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function FinalPage() {
   return (
-    <div className="min-h-screen w-full  bg-[url('/final-bg.png')] bg-cover bg-center mx-auto flex flex-col items-center justify-end gap-8 py-8 px-6">
-      <p className="text-5xl font-semibold whitespace-nowrap">
+    <div className="min-h-screen w-full  bg-[url('/final-bg.png')] bg-cover bg-center mx-auto flex flex-col items-center justify-end gap-8 py-8">
+      <p className="text-4xl font-semibold text-left whitespace-nowrap max-w-sm">
         Buscá tu silla <br /> y a tu equipo <br /> para el <i>hackaton.</i>
       </p>
 
@@ -12,7 +12,7 @@ export default function FinalPage() {
         alt="Finnegans logo"
         width={700}
         height={700}
-        className="w-full"
+        className="w-full max-w-sm object-contain px-12"
       />
     </div>
   );

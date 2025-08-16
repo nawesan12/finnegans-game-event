@@ -22,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* 3. Apply the font class to the body */}
-      <body className={`${poppins.variable} font-sans antialiased`}>
+      <body
+        className={`${poppins.variable} font-[var(--font-poppins)] antialiased`}
+      >
         {children}
       </body>
     </html>

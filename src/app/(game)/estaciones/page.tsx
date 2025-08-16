@@ -25,7 +25,7 @@ const App = () => {
       <div className="w-full lg:max-w-sm mx-auto flex flex-col ">
         {/* Header */}
         <header className="p-6 text-center ">
-          <h1 className="text-3xl font-medium tracking-wider whitespace-nowrap">
+          <h1 className="text-2xl font-medium tracking-wider whitespace-nowrap">
             Estaciones a &nbsp;
             <div className="inline-flex relative -left-2 max-w-max">
               <span>descubrir</span>
@@ -61,11 +61,11 @@ const App = () => {
                           alt={station.name}
                           width={200}
                           height={200}
-                          className="object-contain size-12"
+                          className="object-contain size-10"
                         />
                       </div>
                       <span
-                        className={`font-medium text-3xl`}
+                        className={`font-medium text-2xl`}
                         style={{ color: station.color }}
                       >
                         {station.name}
@@ -91,8 +91,8 @@ const App = () => {
         </main>
 
         {/* Footer */}
-        <footer className="py-6 flex items-center justify-center gap-2">
-          <p className="flex items-center font-semibold gap-6 px-6 pr-7 py-px text-lg max-w-max text-white rounded-full border-cyan-400 border-2 bg-cyan-400/20 backdrop-blur-lg">
+        <footer className="py-6  flex items-center justify-center gap-2 px-4">
+          <p className="flex items-center font-semibold gap-6 px-6 pr-7 py-1 text-lg max-w-max text-white rounded-full border-cyan-400 border-2 bg-cyan-400/20 backdrop-blur-lg">
             <span className="flex items-center gap-2">
               <Image
                 src="/finnegans.png"
