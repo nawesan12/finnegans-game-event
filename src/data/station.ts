@@ -124,8 +124,9 @@ export const stations: Station[] = [
     floor: 6,
     name: "Propósito",
     icon: "/proposito.png",
-    subtitle: "Somos ejemplo",
-    content: "Content 2",
+    subtitle: "Seguimos nuestra visión",
+    content:
+      "Actuamos con intención, recordando siempre nuestra visión y misión, y transformamos cada esfuerzo en un paso hacia lo que verdaderamente importa.",
     key: "Proposito",
     color: "#ffca6c",
     position: {
