@@ -80,7 +80,7 @@ export const stations: Station[] = [
     color: "#ff3f01",
     position: {
       top: -32,
-      left: -24,
+      left: -20,
       rotation: "0deg",
     },
     textPosition: "center",

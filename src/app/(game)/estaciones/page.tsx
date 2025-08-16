@@ -4,21 +4,15 @@ import React, { useState } from "react";
 import { stations } from "@/data/station";
 import Image from "next/image";
 import { Check } from "lucide-react";
+import ProgressTracker from "@/components/ProgressTracker";
+import { useGameStore } from "@/store/gameStore";
 
 // Main Component
 const App = () => {
   // State to track completed stations
-  const [completed, setCompleted] = useState<string[]>([]);
+  const { stations: stationsProgress } = useGameStore();
 
-  const handleToggleComplete = (id: string) => {
-    setCompleted((prev) =>
-      prev.includes(id)
-        ? prev.filter((stationId) => stationId !== id)
-        : [...prev, id],
-    );
-  };
-
-  const allCompleted = completed.length === stations.length;
+  const allCompleted = stationsProgress.length === stations.length;
 
   return (
     <div className=" bg-[#04102d] text-white min-h-screen flex flex-col items-center justify-center py-4">
@@ -45,7 +39,10 @@ const App = () => {
         <main className="flex-grow p-4">
           <ul className="flex flex-col gap-4">
             {stations.map((station) => {
-              const isCompleted = completed.includes(station.id);
+              const progress = stationsProgress.find(
+                (s) => s.id === station.id,
+              );
+              const isCompleted = !!progress?.completed;
               return (
                 <a key={station.id} href={`/conquista/${station.id}`}>
                   <li
@@ -72,8 +69,7 @@ const App = () => {
                       </span>
                     </div>
                     {isCompleted && (
-                      <button
-                        onClick={() => handleToggleComplete(station.id)}
+                      <div
                         className={`w-10 h-10 flex-shrink-0 rounded-full flex items-center justify-center transition-all duration-300 ${
                           isCompleted
                             ? "bg-gradient-to-br from-cyan-400 to-blue-600"
@@ -81,7 +77,7 @@ const App = () => {
                         }`}
                       >
                         {isCompleted && <Check />}
-                      </button>
+                      </div>
                     )}
                   </li>
                 </a>
@@ -92,20 +88,7 @@ const App = () => {
 
         {/* Footer */}
         <footer className="py-6  flex items-center justify-center gap-2 px-4">
-          <p className="flex items-center font-semibold gap-6 px-6 pr-7 py-1 text-lg max-w-max text-white rounded-full border-cyan-400 border-2 bg-cyan-400/20 backdrop-blur-lg">
-            <span className="flex items-center gap-2">
-              <Image
-                src="/finnegans.png"
-                alt="Conquistas"
-                width={17}
-                height={17}
-              />
-              Conquistas
-            </span>
-            <span>
-              {completed.length}/{stations.length}
-            </span>
-          </p>
+          <ProgressTracker completedCount={stationsProgress.length} />
           <button
             className={`py-1 text-lg px-6 font-semibold rounded-full max-w-max w-full transition-all duration-300 ${
               allCompleted

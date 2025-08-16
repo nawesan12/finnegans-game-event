@@ -5,6 +5,7 @@ import { stations } from "@/data/station";
 import { useGameStore } from "@/store/gameStore";
 import Link from "next/link";
 import Image from "next/image";
+import ProgressTracker from "@/components/ProgressTracker";
 
 const ConquistaPage = () => {
   const router = useRouter();
@@ -79,9 +80,9 @@ const ConquistaPage = () => {
             <Image
               src={station.icon}
               alt={station.name}
-              width={100}
-              height={100}
-              className="absolute object-contain"
+              width={200}
+              height={200}
+              className="absolute object-contain size-24"
               style={{
                 top: station?.position?.top,
                 left: station?.position?.left,
@@ -110,7 +111,7 @@ const ConquistaPage = () => {
         </section>
       </main>
 
-      <div className="relative w-full">
+      <form onSubmit={handleSubmit} className="relative w-full">
         <input
           type="text"
           value={inputValue}
@@ -130,7 +131,7 @@ const ConquistaPage = () => {
             className="absolute size-12 right-2 top-1/2 transform -translate-y-1/2"
           />
         </button>
-      </div>
+      </form>
 
       {error && (
         <p className="text-red-500 text-sm text-center mt-2">
@@ -146,20 +147,7 @@ const ConquistaPage = () => {
         >
           Volver
         </Link>
-        <div className="flex items-center font-semibold gap-6 px-6 pr-7 py-1 text-lg max-w-max text-white rounded-full border-cyan-400 border-2 bg-cyan-400/20 backdrop-blur-lg">
-          <span className="flex items-center gap-2">
-            <Image
-              src="/finnegans.png"
-              alt="Conquistas"
-              width={17}
-              height={17}
-            />
-            Conquistas
-          </span>
-          <span>
-            {completedCount}/{stations.length}
-          </span>
-        </div>
+        <ProgressTracker completedCount={completedCount} />
       </footer>
     </div>
   );
