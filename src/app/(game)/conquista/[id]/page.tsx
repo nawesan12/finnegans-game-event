@@ -6,6 +6,7 @@ import { useGameStore } from "@/store/gameStore";
 import Link from "next/link";
 import Image from "next/image";
 import ProgressTracker from "@/components/ProgressTracker";
+import { motion, AnimatePresence } from "framer-motion";
 
 const ConquistaPage = () => {
   const router = useRouter();
@@ -22,9 +23,7 @@ const ConquistaPage = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
-    if (error) {
-      setError(false);
-    }
+    if (error) setError(false);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -32,7 +31,6 @@ const ConquistaPage = () => {
     if (!station) return;
 
     const correctAnswer = station.key;
-
     //@ts-expect-error bla
     const formData = new FormData(formRef?.current);
 
@@ -51,49 +49,75 @@ const ConquistaPage = () => {
 
   if (!station) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-[#04102d] text-white">
+      <motion.div
+        className="flex items-center justify-center min-h-screen bg-[#04102d] text-white"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
         <p>Estación no encontrada.</p>
         <Link href="/estaciones">
           <button className="text-cyan-400 ml-4">Volver</button>
         </Link>
-      </div>
+      </motion.div>
     );
   }
 
   const completedCount = stationProgress.filter((s) => s.completed).length;
-  const allCompleted = completedCount === stations.length;
 
   return (
-    <div className="bg-[#04102d] text-white min-h-screen flex flex-col items-center justify-center gap-6 pt-8 p-4">
-      <section className="rounded-full w-full  text-3xl flex items-center justify-between mb-10 py-2 px-8 bg-[#03001c]">
+    <motion.div
+      className="bg-[#04102d] text-white min-h-screen flex flex-col items-center justify-center gap-6 pt-8 p-4"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      {/* Header */}
+      <motion.section
+        className="rounded-full w-full text-3xl flex items-center justify-between mb-10 py-2 px-8 bg-[#03001c]"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <p style={{ color: station.color }}>Piso</p>
         <p style={{ color: station.color }} className="text-4xl">
           {station.floor}
         </p>
-      </section>
+      </motion.section>
 
-      <main className="w-full max-w-sm mx-auto">
+      {/* Main Card */}
+      <motion.main
+        className="w-full max-w-sm mx-auto"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+      >
         <section
           className="border-2 rounded-4xl"
           style={{ borderColor: station.color }}
         >
           <div
-            className="border-b-2  relative"
+            className="border-b-2 relative"
             style={{ borderColor: station.color }}
           >
-            <Image
-              src={station.icon}
-              alt={station.name}
-              width={200}
-              height={200}
-              className="absolute object-contain size-24"
-              style={{
-                top: station?.position?.top,
-                left: station?.position?.left,
-                rotate: station?.position?.rotation,
-                height: station?.height || 100,
-              }}
-            />
+            <motion.div
+              initial={{ rotate: -20, opacity: 0, scale: 0.8 }}
+              animate={{ rotate: 0, opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+            >
+              <Image
+                src={station.icon}
+                alt={station.name}
+                width={200}
+                height={200}
+                className="absolute z-[9999] object-contain size-24"
+                style={{
+                  top: station?.position?.top,
+                  left: station?.position?.left,
+                  rotate: station?.position?.rotation,
+                  height: station?.height || 100,
+                }}
+              />
+            </motion.div>
             <h2
               className="text-3xl font-medium px-8 py-6"
               style={{
@@ -106,31 +130,49 @@ const ConquistaPage = () => {
           </div>
 
           <div>
-            <h3 className="text-2xl px-8 py-6" style={{ color: station.color }}>
+            <h3
+              className="text-2xl px-8 py-6 font-medium"
+              style={{ color: station.color }}
+            >
               {station.subtitle}
             </h3>
-
             <p className="px-8 pb-8 text-xl">{station.content}</p>
           </div>
         </section>
-      </main>
+      </motion.main>
 
-      <form
+      {/* Form */}
+      <motion.form
         ref={formRef}
         onSubmit={handleSubmit}
-        className={`relative w-full rounded-full p-1 ${error ? "bg-red-500" : "bg-gradient-to-r from-[#4bc3fe] from-0% via-[#17214f] via-50% to-[#4bc3fe] to-100%"}`}
+        className={`relative w-full rounded-full p-1 ${
+          error
+            ? "bg-red-500"
+            : "bg-gradient-to-r from-[#4bc3fe] via-[#17214f] to-[#4bc3fe]"
+        }`}
+        initial={{ y: 30, opacity: 0 }}
+        animate={{
+          y: 0,
+          opacity: 1,
+          x: error ? [0, -8, 8, -8, 8, 0] : 0, // 👈 Shake animation
+        }}
+        transition={{ duration: error ? 0.4 : 0.5 }}
       >
         <input
           type="text"
           name="answer"
           value={inputValue}
           onChange={handleInputChange}
-          className={`w-full mx-auto p-4 rounded-full bg-[#04102d]   text-white pl-6 text-2xl focus:outline-none focus:ring-2  transition-all duration-300 placeholder-white`}
+          className="w-full mx-auto p-4 rounded-full bg-[#04102d] text-white pl-6 text-2xl focus:outline-none focus:ring-2 transition-all duration-300 placeholder-white"
           placeholder="Ingresa aquí la clave"
         />
-
         {!error && (
-          <button className="z-20" type="submit">
+          <motion.button
+            className="z-40"
+            type="submit"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
             <Image
               src="/flecha-derecha.png"
               alt="Finnegans"
@@ -138,17 +180,31 @@ const ConquistaPage = () => {
               height={64}
               className="absolute size-12 right-2 top-1/2 transform -translate-y-1/2"
             />
-          </button>
+          </motion.button>
         )}
-      </form>
-      {error && (
-        <p className="text-red-500 text-sm text-center mt-1">
-          Las palabras no son correctas. ¡Inténtalo de nuevo!
-        </p>
-      )}
+      </motion.form>
+
+      <AnimatePresence>
+        {error && (
+          <motion.p
+            key="error-message"
+            className="text-red-500 text-sm text-center mt-1"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+          >
+            Las palabras no son correctas. ¡Inténtalo de nuevo!
+          </motion.p>
+        )}
+      </AnimatePresence>
 
       {/* Footer */}
-      <footer className="w-full pb-6 flex items-center justify-between gap-4">
+      <motion.footer
+        className="w-full pb-6 flex items-center justify-between gap-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4 }}
+      >
         <Link
           href="/estaciones"
           className="py-1 w-full text-center text-lg px-6 font-semibold rounded-full border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 transition-colors duration-300"
@@ -156,8 +212,8 @@ const ConquistaPage = () => {
           Volver
         </Link>
         <ProgressTracker completedCount={completedCount} />
-      </footer>
-    </div>
+      </motion.footer>
+    </motion.div>
   );
 };
 

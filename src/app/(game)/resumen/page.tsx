@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function ResumenPage() {
   const images = [
@@ -14,17 +17,31 @@ export default function ResumenPage() {
 
   return (
     <section className="min-h-screen bg-black grid grid-cols-2 grid-rows-4 p-1">
+      {/* Imágenes con fade-in secuencial */}
       {images.map((image, index) => (
-        <Image
+        <motion.div
           key={index}
-          src={image}
-          alt={`Imagen ${index + 1}`}
-          width={400}
-          height={400}
-          className="object-contain"
-        />
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.15, duration: 0.5 }}
+        >
+          <Image
+            src={image}
+            alt={`Imagen ${index + 1}`}
+            width={400}
+            height={400}
+            className="object-contain"
+          />
+        </motion.div>
       ))}
-      <div className="p-4 pt-2 pb-2 flex flex-col justify-around relative">
+
+      {/* Texto + botón */}
+      <motion.div
+        className="p-4 pt-2 pb-2 flex flex-col justify-around relative"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: images.length * 0.15, duration: 0.5 }}
+      >
         <p className="font-semibold leading-none text-2xl">
           Completaste <br /> la misión, <br />{" "}
           <span className="text-[#4bc3fe] italic">
@@ -32,21 +49,34 @@ export default function ResumenPage() {
           </span>
         </p>
 
-        <Image
+        {/* Nube flotante */}
+        <motion.div
           className="inline size-14 object-contain absolute right-3 bottom-[70px]"
-          width={64}
-          height={64}
-          src="/nube.png"
-          alt="Imagen de liderazgo"
-        />
-
-        <Link
-          href="/final"
-          className="font-semibold gap-6 text-center mx-auto min-w-full py-1 px-1 max-w-max text-white rounded-full border-cyan-400 border-2 bg-cyan-400/20 backdrop-blur-lg"
+          animate={{ y: [0, -10, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
         >
-          Seguir subiendo
-        </Link>
-      </div>
+          <Image
+            width={64}
+            height={64}
+            src="/nube.png"
+            alt="Imagen de liderazgo"
+          />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: images.length * 0.15 + 0.3, duration: 0.5 }}
+          className="flex min-w-full"
+        >
+          <Link
+            href="/final"
+            className="font-semibold gap-6 text-center mx-auto min-w-full py-1 px-1 max-w-max text-white rounded-full border-cyan-400 border-2 bg-cyan-400/20 backdrop-blur-lg"
+          >
+            Seguir subiendo
+          </Link>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
