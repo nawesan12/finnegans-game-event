@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { stations } from "@/data/station";
 import Image from "next/image";
 import { Check } from "lucide-react";
@@ -12,7 +12,8 @@ const App = () => {
   // State to track completed stations
   const { stations: stationsProgress } = useGameStore();
 
-  const allCompleted = stationsProgress.length === stations.length;
+  const allCompleted =
+    stationsProgress.filter((e) => e.completed).length === stations.length;
 
   console.log(stationsProgress);
 
@@ -46,25 +47,39 @@ const App = () => {
               );
               const isCompleted = !!progress?.completed;
               return (
-                <a key={station.id} href={`/conquista/${station.id}`}>
+                <a
+                  key={station.id}
+                  href={`/conquista/${station.id}`}
+                  className="p-[2px] rounded-full"
+                  style={{
+                    background: isCompleted
+                      ? `linear-gradient(to right, ${station.color} 0%, transparent 100%)`
+                      : station.color,
+                  }}
+                >
                   <li
-                    className={`flex items-center justify-between px-2 py-2 rounded-full border  transition-all duration-300`}
-                    style={{ borderColor: station.color }}
+                    className={`flex items-center justify-between px-2 py-2 rounded-full pr-4 transition-all duration-300`}
+                    style={{
+                      background: isCompleted ? `#04102dbb` : "#04102d",
+                    }}
                   >
                     <div
-                      className={`flex flex-row w-full items-center space-x-4 ${!isCompleted ? "w-full justify-between pr-6" : ""}`}
+                      className={`flex flex-row w-full items-center space-x-4 ${!isCompleted ? "w-full justify-between px-6" : ""}`}
                     >
-                      <div className={`px-4 py-1 rounded-full`}>
-                        <Image
-                          src={station.icon}
-                          alt={station.name}
-                          width={200}
-                          height={200}
-                          className="object-contain size-10"
-                        />
-                      </div>
+                      {!isCompleted && (
+                        <div className={`px-4 py-1 rounded-full`}>
+                          <Image
+                            src={station.icon}
+                            alt={station.name}
+                            width={200}
+                            height={200}
+                            className="object-contain size-10"
+                          />
+                        </div>
+                      )}
+
                       <span
-                        className={`font-medium text-2xl`}
+                        className={`font-semibold text-2xl pl-6 py-2 relative z-30`}
                         style={{ color: station.color }}
                       >
                         {station.name}
@@ -72,10 +87,8 @@ const App = () => {
                     </div>
                     {isCompleted && (
                       <div
-                        className={`w-10 h-10 flex-shrink-0 rounded-full flex items-center justify-center transition-all duration-300 ${
-                          isCompleted
-                            ? "bg-gradient-to-br from-cyan-400 to-blue-600"
-                            : "bg-gray-700"
+                        className={`size-11 flex-shrink-0 rounded-full flex items-center justify-center transition-all duration-300 ${
+                          isCompleted ? "bg-[#4bc3fe]" : "bg-gray-700"
                         }`}
                       >
                         {isCompleted && <Check />}

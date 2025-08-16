@@ -140,13 +140,12 @@ const ConquistaPage = () => {
             />
           </button>
         )}
-
-        {error && (
-          <p className="text-red-500 text-sm text-center mt-1">
-            Las palabras no son correctas. ¡Inténtalo de nuevo!
-          </p>
-        )}
       </form>
+      {error && (
+        <p className="text-red-500 text-sm text-center mt-1">
+          Las palabras no son correctas. ¡Inténtalo de nuevo!
+        </p>
+      )}
 
       {/* Footer */}
       <footer className="w-full pb-6 flex items-center justify-between gap-4">
