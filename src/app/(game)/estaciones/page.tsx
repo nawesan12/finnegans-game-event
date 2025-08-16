@@ -25,6 +25,8 @@ const App = () => {
 
     if (nextStation) {
       router.push(`/conquista/${nextStation.id}`);
+    } else {
+      router.push("/resumen");
     }
   };
 
