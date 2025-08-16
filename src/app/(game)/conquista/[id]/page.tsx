@@ -168,17 +168,17 @@ const ConquistaPage = () => {
         />
         {!error && (
           <motion.button
-            className="z-40"
             type="submit"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 size-12 flex items-center justify-center z-50"
           >
             <Image
               src="/flecha-derecha.png"
-              alt="Finnegans"
+              alt="Enviar"
               width={64}
               height={64}
-              className="absolute size-12 right-2 top-1/2 transform -translate-y-1/2"
+              className="object-contain"
             />
           </motion.button>
         )}
