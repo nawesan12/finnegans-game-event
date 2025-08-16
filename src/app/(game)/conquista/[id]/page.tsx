@@ -66,7 +66,7 @@ const ConquistaPage = () => {
 
   return (
     <motion.div
-      className="bg-[#04102d] text-white min-h-screen flex flex-col items-center justify-center gap-6 pt-8 p-4"
+      className="bg-[#04102d] lg:max-w-sm lg:mx-auto  text-white min-h-screen flex flex-col items-center justify-center gap-6 pt-8 p-4"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}

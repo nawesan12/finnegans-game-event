@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       {/* 3. Apply the font class to the body */}
       <body
-        className={`${poppins.variable} font-[var(--font-poppins)] antialiased`}
+        className={`${poppins.variable} font-[var(--font-poppins)] antialiased bg-[#04102d]`}
       >
         {children}
       </body>

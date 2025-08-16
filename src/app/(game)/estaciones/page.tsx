@@ -148,7 +148,9 @@ const App = () => {
 
         {/* Footer */}
         <footer className="py-6 flex items-center justify-center gap-2 px-4">
-          <ProgressTracker completedCount={stationsProgress.length} />
+          <ProgressTracker
+            completedCount={stationsProgress.filter((e) => e.completed).length}
+          />
           <motion.button
             onClick={handleContinue}
             className={`py-1 text-lg px-6 font-semibold rounded-full max-w-max w-full transition-all duration-300 ${
