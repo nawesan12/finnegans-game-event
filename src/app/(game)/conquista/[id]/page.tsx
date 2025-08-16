@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { stations } from "@/data/station";
 import { useGameStore } from "@/store/gameStore";
@@ -18,6 +18,7 @@ const ConquistaPage = () => {
 
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState(false);
+  const formRef = useRef(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -26,22 +27,25 @@ const ConquistaPage = () => {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (!station) return;
 
-    const correctAnswers = station.key;
-    const userAnswers = inputValue.trim().split(" ");
+    const correctAnswer = station.key;
 
-    if (
-      userAnswers.length === correctAnswers.length &&
-      userAnswers.every(
-        (ans, i) => ans.toLowerCase() === correctAnswers[i].toLowerCase(),
-      )
-    ) {
-      completeStation(station.id, userAnswers);
+    //@ts-expect-error bla
+    const formData = new FormData(formRef?.current);
+
+    if (formData.get("answer") === correctAnswer) {
+      completeStation(station.id, formData.get("answer") as string);
       router.push("/estaciones");
     } else {
       setError(true);
+      setTimeout(() => {
+        //@ts-expect-error bla
+        formRef.current?.reset();
+        setError(false);
+      }, 1700);
     }
   };
 
@@ -111,33 +115,38 @@ const ConquistaPage = () => {
         </section>
       </main>
 
-      <form onSubmit={handleSubmit} className="relative w-full">
+      <form
+        ref={formRef}
+        onSubmit={handleSubmit}
+        className={`relative w-full rounded-full p-1 ${error ? "bg-red-500" : "bg-gradient-to-r from-[#4bc3fe] from-0% via-[#17214f] via-50% to-[#4bc3fe] to-100%"}`}
+      >
         <input
           type="text"
+          name="answer"
           value={inputValue}
           onChange={handleInputChange}
-          className={`w-full mx-auto p-4 rounded-full bg-[#04102d] border-2  text-white pl-6 text-2xl focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300 placeholder-white ${
-            error ? "border-red-500" : "border-cyan-400/50"
-          }`}
+          className={`w-full mx-auto p-4 rounded-full bg-[#04102d]   text-white pl-6 text-2xl focus:outline-none focus:ring-2  transition-all duration-300 placeholder-white`}
           placeholder="Ingresa aquí la clave"
         />
 
-        <button className="z-20" onClick={() => alert("Apretaste el boton")}>
-          <Image
-            src="/flecha-derecha.png"
-            alt="Finnegans"
-            width={64}
-            height={64}
-            className="absolute size-12 right-2 top-1/2 transform -translate-y-1/2"
-          />
-        </button>
-      </form>
+        {!error && (
+          <button className="z-20" type="submit">
+            <Image
+              src="/flecha-derecha.png"
+              alt="Finnegans"
+              width={64}
+              height={64}
+              className="absolute size-12 right-2 top-1/2 transform -translate-y-1/2"
+            />
+          </button>
+        )}
 
-      {error && (
-        <p className="text-red-500 text-sm text-center mt-2">
-          Las palabras no son correctas. ¡Inténtalo de nuevo!
-        </p>
-      )}
+        {error && (
+          <p className="text-red-500 text-sm text-center mt-1">
+            Las palabras no son correctas. ¡Inténtalo de nuevo!
+          </p>
+        )}
+      </form>
 
       {/* Footer */}
       <footer className="w-full pb-6 flex items-center justify-between gap-4">
