@@ -119,7 +119,6 @@ const App = () => {
           <ProgressTracker completedCount={stationsProgress.length} />
           <button
             onClick={handleContinue}
-            disabled={allCompleted}
             className={`py-1 text-lg px-6 font-semibold rounded-full max-w-max w-full transition-all duration-300 ${
               allCompleted
                 ? "bg-gradient-to-r from-green-400 to-teal-500 text-white shadow-lg shadow-green-500/30"
