@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Finnegans Evento",
-    short_name: "FinnegansEvento",
+    short_name: "Finnegans Evento",
     description: "Finnegans",
     start_url: "/",
     display: "standalone",
@@ -16,7 +16,7 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/png",
       },
       {
-        src: "/nube.png",
+        src: "/finnegans.png",
         sizes: "512x512",
         type: "image/png",
       },
