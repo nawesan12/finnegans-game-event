@@ -14,6 +14,8 @@ const App = () => {
 
   const allCompleted = stationsProgress.length === stations.length;
 
+  console.log(stationsProgress);
+
   return (
     <div className=" bg-[#04102d] text-white min-h-screen flex flex-col items-center justify-center py-4">
       <div className="w-full lg:max-w-sm mx-auto flex flex-col ">

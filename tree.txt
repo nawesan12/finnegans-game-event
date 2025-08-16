@@ -1,0 +1,60 @@
+|-- .DS_Store
+|-- postcss.config.mjs
+|-- bun.lock
+|-- next-env.d.ts
+|-- README.md
+|-- public
+|   |-- boton-obvio.png
+|   |-- .DS_Store
+|   |-- finnegans.png
+|   |-- cuadro-liderazgo.png
+|   |-- finnegans-blanco.png
+|   |-- cuadro-creatividad.png
+|   |-- flecha-derecha.png
+|   |-- pasaporte.png
+|   |-- final-bg.png
+|   |-- liderazgo.png
+|   |-- nube.png
+|   |-- compromiso.png
+|   |-- creatividad.png
+|   |-- cuadro-compromiso.png
+|   |-- cuadro-colaboracion.png
+|   |-- cuadro-proposito.png
+|   |-- calidad.png
+|   |-- empatia.png
+|   |-- boton-supuesto.png
+|   |-- cuadro-empatia.png
+|   |-- proposito.png
+|   |-- colaboracion.png
+|   |-- cuadro-calidad.png
+|   |-- subrayado.png
+|-- .gitignore
+|-- package.json
+|-- tsconfig.json
+|-- walk.js
+|-- tree.txt
+|-- eslint.config.mjs
+|-- next.config.ts
+|-- src
+|   |-- app
+|   |   |-- favicon.ico
+|   |   |-- layout.tsx
+|   |   |-- page.tsx
+|   |   |-- globals.css
+|   |   |-- (game)
+|   |   |   |-- resumen
+|   |   |   |   |-- page.tsx
+|   |   |   |-- final
+|   |   |   |   |-- page.tsx
+|   |   |   |-- estaciones
+|   |   |   |   |-- page.tsx
+|   |   |   |-- conquista
+|   |   |   |   |-- [id]
+|   |   |   |   |   |-- page.tsx
+|   |-- types.ts
+|   |-- components
+|   |   |-- ProgressTracker.tsx
+|   |-- data
+|   |   |-- station.ts
+|   |-- store
+|   |   |-- gameStore.ts
