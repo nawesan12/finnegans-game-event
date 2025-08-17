@@ -41,13 +41,13 @@ const App = () => {
 
   return (
     <motion.div
-      className="bg-[#04102d] text-white min-h-screen flex flex-col items-center justify-center py-4"
+      className="bg-[#04102d] text-white h-screen max-h-screen flex flex-col items-center justify-center py-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
-      <div className="w-full lg:max-w-sm mx-auto flex flex-col ">
+      <div className="w-full lg:max-w-sm mx-auto flex flex-col">
         {/* Header */}
-        <header className="p-6 text-center">
+        <header className="p-6 py-1 pt-2 text-center">
           <motion.h1
             className="text-2xl font-medium tracking-wider whitespace-nowrap"
             initial={{ opacity: 0, y: -20 }}
@@ -56,18 +56,18 @@ const App = () => {
             Estaciones a &nbsp;
             <div className="inline-flex relative -left-2 max-w-max">
               <span>descubrir</span>
-              <motion.div
+              {/*<motion.div
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="origin-left absolute -bottom-2 w-full h-[6px] bg-[url('/subrayado.png')] bg-no-repeat bg-contain"
-              />
+              />*/}
             </div>
           </motion.h1>
         </header>
 
         {/* Stations List */}
-        <main className="flex-grow p-4">
+        <main className="flex-grow p-4 pb-1">
           <ul className="flex flex-col gap-4">
             {stations.map((station, i) => {
               const progress = stationsProgress.find(
@@ -78,7 +78,7 @@ const App = () => {
                 <motion.a
                   key={station.id}
                   href={isCompleted ? "#" : `/conquista/${station.id}`}
-                  className="p-[2px] rounded-full block"
+                  className="p-[2px] py-px rounded-full block"
                   style={{
                     background: isCompleted
                       ? `linear-gradient(to right, ${station.color} 0%, transparent 100%)`
@@ -147,7 +147,7 @@ const App = () => {
         </main>
 
         {/* Footer */}
-        <footer className="py-6 flex items-center justify-center gap-2 px-4">
+        <footer className="py-6 flex items-center justify-center gap-2 px-4 max-w-sm">
           <ProgressTracker
             completedCount={stationsProgress.filter((e) => e.completed).length}
           />

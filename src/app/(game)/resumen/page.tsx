@@ -16,7 +16,7 @@ export default function ResumenPage() {
   ];
 
   return (
-    <section className="min-h-screen bg-black grid grid-cols-2 grid-rows-4 p-1">
+    <section className="h-screen max-h-screen bg-black grid grid-cols-2 grid-rows-4 gap-2 p-6">
       {/* Imágenes con fade-in secuencial */}
       {images.map((image, index) => (
         <motion.div
@@ -37,12 +37,12 @@ export default function ResumenPage() {
 
       {/* Texto + botón */}
       <motion.div
-        className="p-4 pt-2 pb-2 flex flex-col justify-around relative"
+        className="p-4 pt-2 pb-2 pr-px flex flex-col justify-around relative"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: images.length * 0.15, duration: 0.5 }}
       >
-        <p className="font-semibold leading-none text-2xl">
+        <p className="font-semibold leading-none text-xl">
           Completaste <br /> la misión, <br />{" "}
           <span className="text-[#4bc3fe] italic">
             llegaste <br /> a lo alto.
@@ -51,8 +51,8 @@ export default function ResumenPage() {
 
         {/* Nube flotante */}
         <motion.div
-          className="inline size-14 object-contain absolute right-3 bottom-[70px]"
-          animate={{ y: [0, -10, 0] }}
+          className="inline size-14 object-contain absolute right-0 bottom-16"
+          animate={{ y: [0, -6, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
         >
           <Image
@@ -71,7 +71,7 @@ export default function ResumenPage() {
         >
           <Link
             href="/final"
-            className="font-semibold gap-6 text-center mx-auto min-w-full py-1 px-1 max-w-max text-white rounded-full border-cyan-400 border-2 bg-cyan-400/20 backdrop-blur-lg"
+            className="font-semibold gap-6 text-center text-sm mx-auto min-w-full py-1 px-1 max-w-max text-white rounded-full border-cyan-400 border-2 bg-cyan-400/20 backdrop-blur-lg"
           >
             Seguir subiendo
           </Link>

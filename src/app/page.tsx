@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <section className="bg-[#04102d] text-white min-h-screen flex flex-col items-center justify-center gap-4 p-4">
+    <section className="bg-[#04102d] text-white h-screen max-h-screen flex flex-col items-center justify-center gap-2 p-4">
       {/* Título */}
       <motion.h1
         className="text-4xl text-center"
@@ -35,7 +35,7 @@ export default function Home() {
 
       {/* Texto */}
       <motion.p
-        className="text-[#4bc3fe] text-4xl"
+        className="text-[#4bc3fe] text-4xl relative bottom-2"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
