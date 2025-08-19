@@ -20,10 +20,10 @@ export default function FinalPage() {
       {/* Content overlay */}
       <div className="relative z-10 flex flex-col items-center justify-between w-full h-full px-8 py-12">
         {/* Centered Text */}
-        <div className="flex flex-col gap-11 max-w-md mx-auto my-auto relative bottom-12">
+        <div className="flex flex-col gap-11 max-w-md mx-auto my-auto relative ">
           {/* Animated H2 */}
           <motion.h2
-            className="text-6xl text-black font-semibold leading-7"
+            className="text-6xl text-black font-semibold leading-3"
             initial={{ opacity: 0, y: -50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -63,7 +63,7 @@ export default function FinalPage() {
 
           {/* Paragraph */}
           <motion.p
-            className="text-2xl font-semibold text-left text-black"
+            className="text-2xl font-semibold text-left text-black leading-7"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.3 }}
@@ -88,7 +88,7 @@ export default function FinalPage() {
             alt="Finnegans logo"
             width={700}
             height={700}
-            className="w-5/6 max-w-sm px-6 object-contain"
+            className="w-5/6 max-w-sm px-6 object-contain relative bottom-6"
           />
         </motion.div>
       </div>

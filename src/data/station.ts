@@ -5,7 +5,7 @@ export type Station = {
   icon: string;
   subtitle: string;
   content: string;
-  key: string;
+  key: string[];
   color: string;
   position?: {
     top: number;
@@ -18,6 +18,23 @@ export type Station = {
 
 export const stations: Station[] = [
   {
+    id: "proposito",
+    floor: 3,
+    name: "Propósito",
+    icon: "/proposito.png",
+    subtitle: "La dirección que elegimos",
+    content:
+      "Impulsar a las personas a crecer, crear e innovar, para transformar el presente y construir el futuro, juntos.",
+    key: ["Revolución", "Meta", "Sentido"],
+    color: "#ffca6c",
+    position: {
+      top: 6,
+      left: 32,
+      rotation: "0deg",
+    },
+    textPosition: "right",
+  },
+  {
     id: "calidad",
     floor: 5,
     name: "Calidad",
@@ -25,7 +42,7 @@ export const stations: Station[] = [
     subtitle: "Excelencia en cada detalle",
     content:
       "Cuidamos cada aspecto de nuestro trabajo y aprendemos sin pausa, para diseñar soluciones que transformen y dejen una huella perdurable.",
-    key: "Calidad",
+    key: ["Excelencia", "Precisión", "Sobresaliente"],
     color: "#ff92de",
     position: {
       top: -48,
@@ -42,7 +59,7 @@ export const stations: Station[] = [
     subtitle: "Crecer en equipo",
     content:
       "Compartimos conocimiento, fomentamos la inclusión y colaboramos con respeto y generosidad, construyendo comunidad a través de la cooperación.",
-    key: "Colaboracion",
+    key: ["Trabajo en equipo", "Sinergia", "Cooperación"],
     color: "#fd8100",
     position: {
       top: -48,
@@ -53,13 +70,13 @@ export const stations: Station[] = [
   },
   {
     id: "compromiso",
-    floor: 6,
+    floor: 7,
     name: "Compromiso",
     icon: "/compromiso.png",
     subtitle: "Acción con propósito",
     content:
       "Cumplimos nuestras promesas con pasión y transparencia, actuamos con ética y perseveramos ante cualquier desafío para generar un impacto sostenible.",
-    key: "Compromiso",
+    key: ["Responsabilidad", "Constancia", "Transparencia"],
     color: "#008584",
     position: {
       top: -56,
@@ -70,13 +87,13 @@ export const stations: Station[] = [
   },
   {
     id: "creatividad",
-    floor: 6,
+    floor: 8,
     name: "Creatividad",
     icon: "/creatividad.png",
     subtitle: "Creando con impacto",
     content:
       "Exploramos nuevas ideas sin miedo, combinamos saberes diversos y transformamos obstáculos en oportunidades para materializar soluciones originales.",
-    key: "Creatividad",
+    key: ["Innovación", "Originalidad", "Ingenio"],
     color: "#ff3f01",
     position: {
       top: -32,
@@ -87,13 +104,13 @@ export const stations: Station[] = [
   },
   {
     id: "empatia",
-    floor: 6,
+    floor: 9,
     name: "Empatía",
     icon: "/empatia.png",
     subtitle: "Conexión Genuina",
     content:
       "Escuchamos activamente, adaptamos nuestro accionar para incluir a todos y promovemos el diálogo abierto como camino para crear valor compartido.",
-    key: "Empatia",
+    key: ["Comprensión", "Escucha activa", "Sensibilidad"],
     color: "#3985ff",
     position: {
       top: -8,
@@ -104,34 +121,17 @@ export const stations: Station[] = [
   },
   {
     id: "liderazgo",
-    floor: 6,
+    floor: 10,
     name: "Liderazgo",
     icon: "/liderazgo.png",
     subtitle: "Somos ejemplo",
     content:
       "No esperamos el cambio: lo generamos. Guiamos con humildad, valentía y coherencia, inspirando a otros a crecer con cada gesto cotidiano.",
-    key: "Liderazgo",
+    key: ["Inspiración", "Dirección", "Guía"],
     color: "#9fba02",
     position: {
       top: -32,
       left: 24,
-      rotation: "0deg",
-    },
-    textPosition: "right",
-  },
-  {
-    id: "proposito",
-    floor: 6,
-    name: "Propósito",
-    icon: "/proposito.png",
-    subtitle: "Seguimos nuestra visión",
-    content:
-      "Actuamos con intención, recordando siempre nuestra visión y misión, y transformamos cada esfuerzo en un paso hacia lo que verdaderamente importa.",
-    key: "Proposito",
-    color: "#ffca6c",
-    position: {
-      top: 6,
-      left: 32,
       rotation: "0deg",
     },
     textPosition: "right",

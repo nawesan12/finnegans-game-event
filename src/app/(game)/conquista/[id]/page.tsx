@@ -34,7 +34,7 @@ const ConquistaPage = () => {
     //@ts-expect-error bla
     const formData = new FormData(formRef?.current);
 
-    if (formData.get("answer") === correctAnswer) {
+    if (correctAnswer.includes(formData.get("answer") as string)) {
       completeStation(station.id, formData.get("answer") as string);
       router.push("/estaciones");
     } else {
