@@ -23,7 +23,7 @@ export default function FinalPage() {
         <div className="flex flex-col gap-11 max-w-md mx-auto my-auto relative ">
           {/* Animated H2 */}
           <motion.h2
-            className="text-6xl text-black font-semibold leading-3"
+            className="text-6xl text-black relative font-semibold leading-none"
             initial={{ opacity: 0, y: -50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -40,7 +40,7 @@ export default function FinalPage() {
               initial={{ scale: 0 }}
               animate={{ scale: [0, 1.2, 1] }}
               transition={{ delay: 0.6, duration: 0.6, ease: "easeOut" }}
-              className="inline-block align-middle relative bottom-2 right-2"
+              className="inline-block absolute bottom-12 right-2"
             >
               <Image
                 src="/taza.svg"
@@ -55,9 +55,16 @@ export default function FinalPage() {
               initial={{ x: 60, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.9, duration: 0.6 }}
-              className="inline-block"
+              className="inline-block relative"
             >
-              cumplida!
+              <span className="relative z-20">cumplida!</span>
+              <Image
+                src={"/linea.svg"}
+                height={100}
+                width={100}
+                className="w-full -bottom-9 absolute overflow-hidden"
+                alt="Finnegans"
+              />
             </motion.span>
           </motion.h2>
 
@@ -88,7 +95,7 @@ export default function FinalPage() {
             alt="Finnegans logo"
             width={700}
             height={700}
-            className="w-5/6 max-w-sm px-6 object-contain relative bottom-6"
+            className="w-5/6 max-w-sm pr-6 pl-2 object-contain relative bottom-6"
           />
         </motion.div>
       </div>
