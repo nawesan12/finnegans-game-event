@@ -27,16 +27,7 @@ const App = () => {
     stationsProgress.filter((e) => e.completed).length === stations.length;
 
   const handleContinue = () => {
-    const nextStation = stations.find((station) => {
-      const progress = stationsProgress.find((s) => s.id === station.id);
-      return !progress?.completed;
-    });
-
-    if (nextStation) {
-      router.push(`/conquista/${nextStation.id}`);
-    } else {
-      router.push("/resumen");
-    }
+    router.push("/resumen");
   };
 
   return (
@@ -147,17 +138,18 @@ const App = () => {
         </main>
 
         {/* Footer */}
-        <footer className="py-6 flex mx-auto items-center justify-center gap-2 px-4 ">
+        <footer className="py-6 flex mx-auto items-center justify-center gap-2 px-4 md:max-w-sm">
           <ProgressTracker
             completedCount={stationsProgress.filter((e) => e.completed).length}
           />
           <motion.button
-            onClick={handleContinue}
+            onClick={allCompleted ? handleContinue : undefined}
             className={`py-1 text-lg px-6 font-semibold rounded-full max-w-max w-full transition-all duration-300 ${
               allCompleted
                 ? "bg-gradient-to-r from-green-400 to-teal-500 text-white shadow-lg shadow-green-500/30"
                 : "bg-transparent border-cyan-400 border-2"
             }`}
+            disabled={allCompleted}
             animate={
               allCompleted
                 ? { scale: [1, 1.1, 1], boxShadow: "0 0 20px #22c55e55" }
