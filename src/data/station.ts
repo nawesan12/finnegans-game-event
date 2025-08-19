@@ -19,7 +19,7 @@ export type Station = {
 export const stations: Station[] = [
   {
     id: "calidad",
-    floor: 6,
+    floor: 5,
     name: "Calidad",
     icon: "/calidad.png",
     subtitle: "Excelencia en cada detalle",

@@ -147,7 +147,7 @@ const App = () => {
         </main>
 
         {/* Footer */}
-        <footer className="py-6 flex items-center justify-center gap-2 px-4 max-w-sm">
+        <footer className="py-6 flex mx-auto items-center justify-center gap-2 px-4 ">
           <ProgressTracker
             completedCount={stationsProgress.filter((e) => e.completed).length}
           />
