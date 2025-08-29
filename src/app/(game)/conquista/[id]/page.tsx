@@ -66,7 +66,7 @@ const ConquistaPage = () => {
 
   return (
     <motion.div
-      className="bg-[#04102d] lg:max-w-sm lg:mx-auto  text-white min-h-screen flex flex-col items-center justify-center gap-6 pt-8 p-4"
+      className="bg-[#04102d] lg:max-w-sm lg:mx-auto  text-white h-svh max-h-svh flex flex-col items-center justify-center gap-4 pt-8 p-4"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -92,11 +92,11 @@ const ConquistaPage = () => {
         transition={{ delay: 0.2 }}
       >
         <section
-          className="border-2 rounded-4xl"
+          className="border rounded-4xl"
           style={{ borderColor: station.color }}
         >
           <div
-            className="border-b-2 relative"
+            className="border-b relative pt-2"
             style={{ borderColor: station.color }}
           >
             <motion.div
@@ -109,17 +109,16 @@ const ConquistaPage = () => {
                 alt={station.name}
                 width={200}
                 height={200}
-                className="absolute z-[9999] object-contain size-24"
+                className="absolute z-[9999] object-contain size-18"
                 style={{
                   top: station?.position?.top,
                   left: station?.position?.left,
                   rotate: station?.position?.rotation,
-                  height: station?.height || 100,
                 }}
               />
             </motion.div>
             <h2
-              className="text-3xl font-medium px-8 py-6"
+              className="text-4xl font-semibold px-8 py-6"
               style={{
                 color: station.color,
                 textAlign: station.textPosition as CanvasTextAlign,
@@ -131,12 +130,12 @@ const ConquistaPage = () => {
 
           <div>
             <h3
-              className="text-2xl px-8 py-6 font-medium"
+              className="text-2xl px-8 py-6 pb-2 font-medium italic "
               style={{ color: station.color }}
             >
               {station.subtitle}
             </h3>
-            <p className="px-8 pb-8 text-xl">{station.content}</p>
+            <p className="px-8 pb-8 font-thin text-xl">{station.content}</p>
           </div>
         </section>
       </motion.main>
@@ -163,7 +162,7 @@ const ConquistaPage = () => {
           name="answer"
           value={inputValue}
           onChange={handleInputChange}
-          className="w-full mx-auto p-4 rounded-full bg-[#04102d] text-white pl-6 text-2xl focus:outline-none focus:ring-2 transition-all duration-300 placeholder-white"
+          className="w-full mx-auto p-4 py-4 rounded-full bg-[#04102d] text-white pl-6 text-xl focus:outline-none focus:ring-2 transition-all duration-300 placeholder-white font-medium"
           placeholder="Ingresa aquí la clave"
         />
         {!error && (
@@ -171,7 +170,7 @@ const ConquistaPage = () => {
             type="submit"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="absolute right-3 top-1/2 transform -translate-y-1/2 size-12 flex items-center justify-center z-50"
+            className="absolute right-3 top-1/2  transform -translate-y-1/2 size-12 flex items-center justify-center z-50"
           >
             <Image
               src="/flecha-derecha.png"

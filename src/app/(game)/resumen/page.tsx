@@ -16,8 +16,8 @@ export default function ResumenPage() {
   ];
 
   return (
-    <section className="h-screen max-h-screen bg-black p-6">
-      <div className="grid grid-cols-2 grid-rows-4 gap-2 h-full">
+    <section className="h-svh max-h-svh bg-black p-12">
+      <div className="grid grid-cols-2 grid-rows-auto gap-0 h-full">
         {/* Imágenes con fade-in secuencial */}
         {images.map((image, index) => (
           <motion.div
@@ -43,7 +43,7 @@ export default function ResumenPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: images.length * 0.15, duration: 0.5 }}
         >
-          <p className="font-semibold leading-none text-xl">
+          <p className="font-semibold leading-none text-white text-xl">
             Completaste <br /> la misión, <br />{" "}
             <span className="text-[#4bc3fe] italic">
               llegaste <br /> a lo alto.
@@ -52,13 +52,13 @@ export default function ResumenPage() {
 
           {/* Nube flotante */}
           <motion.div
-            className="inline size-14 object-contain absolute right-2 bottom-14"
+            className="inline size-14 object-contain absolute -right-1 bottom-8"
             animate={{ y: [0, -6, 0] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
           >
             <Image
-              width={64}
-              height={64}
+              width={38}
+              height={38}
               src="/nube.png"
               alt="Imagen de liderazgo"
             />

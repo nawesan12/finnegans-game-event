@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function FinalPage() {
   return (
-    <div className="relative min-h-screen h-screen w-full flex flex-col justify-between items-center overflow-hidden">
+    <div className="relative min-h-svh h-svh w-full flex flex-col justify-between items-center overflow-hidden">
       {/* Background video */}
       <video
         autoPlay
@@ -20,7 +20,7 @@ export default function FinalPage() {
       {/* Content overlay */}
       <div className="relative z-10 flex flex-col items-center justify-between w-full h-full px-8 py-12">
         {/* Centered Text */}
-        <div className="flex flex-col gap-11 max-w-md mx-auto my-auto relative ">
+        <div className="flex flex-col gap-6 max-w-md mx-auto my-auto relative ">
           {/* Animated H2 */}
           <motion.h2
             className="text-6xl text-black relative font-semibold leading-none"
@@ -70,7 +70,7 @@ export default function FinalPage() {
 
           {/* Paragraph */}
           <motion.p
-            className="text-2xl font-semibold text-left text-black leading-7"
+            className="text-xl font-semibold text-left text-black leading-7"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.3 }}

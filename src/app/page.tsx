@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <section className="bg-[#04102d] text-white h-screen max-h-screen flex flex-col items-center justify-center gap-2 p-4">
+    <section className="bg-[#04102d] text-white h-svh max-h-svh flex flex-col items-center justify-center gap-2 p-4">
       {/* Título */}
       <motion.h1
         className="text-4xl text-center"

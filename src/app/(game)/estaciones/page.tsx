@@ -3,11 +3,12 @@
 import React from "react";
 import { stations } from "@/data/station";
 import Image from "next/image";
-import { Check } from "lucide-react";
+import { ArrowLeft, Check } from "lucide-react";
 import ProgressTracker from "@/components/ProgressTracker";
 import { useGameStore } from "@/store/gameStore";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 // Variants para animaciones de la lista
 const listVariants = {
@@ -32,34 +33,28 @@ const App = () => {
 
   return (
     <motion.div
-      className="bg-[#04102d] text-white h-screen max-h-screen flex flex-col items-center justify-center py-4"
+      className="bg-[#04102d] text-white h-svh max-h-svh flex flex-col items-center justify-center py-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
       <div className="w-full lg:max-w-sm mx-auto flex flex-col">
         {/* Header */}
-        <header className="p-6 py-1 pt-2 text-center">
+        <header className="p-6 py-1 pt-4 text-center flex items-center justify-between">
+          <Link href="/" className="rounded-full border border-[#4bc3fe] p-2">
+            <ArrowLeft />
+          </Link>
           <motion.h1
-            className="text-2xl font-medium tracking-wider whitespace-nowrap"
+            className="text-2xl font-medium tracking-wider whitespace-nowrap text-[#4bc3fe]"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            Estaciones a &nbsp;
-            <div className="inline-flex relative -left-2 max-w-max">
-              <span>descubrir</span>
-              {/*<motion.div
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="origin-left absolute -bottom-2 w-full h-[6px] bg-[url('/subrayado.png')] bg-no-repeat bg-contain"
-              />*/}
-            </div>
+            Estaciones
           </motion.h1>
         </header>
 
         {/* Stations List */}
-        <main className="flex-grow p-4 pb-1">
-          <ul className="flex flex-col gap-4">
+        <main className="flex-grow p-4 pb-0">
+          <ul className="flex flex-col gap-2">
             {stations.map((station, i) => {
               const progress = stationsProgress.find(
                 (s) => s.id === station.id,
@@ -83,7 +78,7 @@ const App = () => {
                   whileTap={{ scale: 0.98 }}
                 >
                   <li
-                    className={`flex items-center justify-between pr-4 py-2 rounded-full  transition-all duration-300`}
+                    className={`flex items-center justify-between pr-1 py-2 rounded-full  transition-all duration-300`}
                     style={{
                       background: isCompleted ? `#04102dbb` : "#04102d",
                     }}
@@ -94,13 +89,13 @@ const App = () => {
                       }`}
                     >
                       {!isCompleted && (
-                        <div className={` py-1 rounded-full`}>
+                        <div className={` py-[1px] rounded-full`}>
                           <Image
                             src={station.icon}
                             alt={station.name}
                             width={200}
                             height={200}
-                            className="object-contain size-10"
+                            className="object-contain size-9"
                           />
                         </div>
                       )}
@@ -138,15 +133,15 @@ const App = () => {
         </main>
 
         {/* Footer */}
-        <footer className="py-6 flex mx-auto items-center justify-center gap-2 px-4 md:max-w-sm">
+        <footer className="py-6 pt-4 mx-auto grid grid-cols-3 gap-2 px-4 md:max-w-sm">
           <ProgressTracker
             completedCount={stationsProgress.filter((e) => e.completed).length}
           />
           <motion.button
             onClick={allCompleted ? handleContinue : undefined}
-            className={`py-1 text-lg px-6 font-semibold rounded-full max-w-max w-full transition-all duration-300 ${
+            className={`py-1 text-md col-span-1 px-4 font-semibold rounded-full max-w-max w-full transition-all duration-300 ${
               allCompleted
-                ? "bg-gradient-to-r from-green-400 to-teal-500 text-white shadow-lg shadow-green-500/30"
+                ? "bg-transparent border-cyan-400 border-2"
                 : "bg-transparent border-cyan-400 border-2"
             }`}
             disabled={allCompleted}
@@ -157,7 +152,7 @@ const App = () => {
             }
             transition={{ repeat: allCompleted ? Infinity : 0, duration: 1.5 }}
           >
-            {allCompleted ? "¡Seguir!" : "Continuar"}
+            Continuar
           </motion.button>
         </footer>
       </div>
