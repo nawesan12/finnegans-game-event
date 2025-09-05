@@ -29,7 +29,7 @@ export default function Home() {
           alt="Logo"
           width={400}
           height={400}
-          className="max-h-[500px] object-contain"
+          className="max-h-[440px] object-contain"
         />
       </motion.div>
 
@@ -45,7 +45,7 @@ export default function Home() {
 
       {/* Botones */}
       <motion.div
-        className="flex items-center justify-center gap-4"
+        className="flex items-center justify-center gap-3 relative -top-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.7 }}
@@ -57,7 +57,7 @@ export default function Home() {
               alt="Logo"
               width={200}
               height={200}
-              className="h-20 object-contain"
+              className="h-14 object-contain"
             />
           </Link>
         </motion.div>
@@ -68,7 +68,7 @@ export default function Home() {
               alt="Logo"
               width={200}
               height={200}
-              className="h-20 object-contain"
+              className="h-14 object-contain"
             />
           </Link>
         </motion.div>
