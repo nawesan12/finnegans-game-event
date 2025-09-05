@@ -28,7 +28,7 @@ export const stations: Station[] = [
     key: ["Revolución", "Meta", "Sentido"],
     color: "#ffca6c",
     position: {
-      top: 6,
+      top: 10,
       left: 32,
       rotation: "0deg",
     },
@@ -45,7 +45,7 @@ export const stations: Station[] = [
     key: ["Excelencia", "Precisión", "Sobresaliente"],
     color: "#ff92de",
     position: {
-      top: -48,
+      top: -26,
       left: 16,
       rotation: "-12deg",
     },
@@ -62,7 +62,7 @@ export const stations: Station[] = [
     key: ["Trabajo en equipo", "Sinergia", "Cooperación"],
     color: "#fd8100",
     position: {
-      top: -48,
+      top: -32,
       left: 4,
       rotation: "0deg",
     },
@@ -79,8 +79,8 @@ export const stations: Station[] = [
     key: ["Responsabilidad", "Constancia", "Transparencia"],
     color: "#008584",
     position: {
-      top: -56,
-      left: -16,
+      top: -32,
+      left: -12,
       rotation: "0deg",
     },
     textPosition: "left",
@@ -96,7 +96,7 @@ export const stations: Station[] = [
     key: ["Innovación", "Originalidad", "Ingenio"],
     color: "#ff3f01",
     position: {
-      top: -32,
+      top: -24,
       left: -20,
       rotation: "0deg",
     },
@@ -113,8 +113,8 @@ export const stations: Station[] = [
     key: ["Comprensión", "Escucha activa", "Sensibilidad"],
     color: "#3985ff",
     position: {
-      top: -8,
-      left: -12,
+      top: -26,
+      left: 0,
       rotation: "0deg",
     },
     textPosition: "right",

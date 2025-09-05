@@ -70,7 +70,7 @@ export default function FinalPage() {
 
           {/* Paragraph */}
           <motion.p
-            className="text-xl font-semibold text-left text-black leading-7"
+            className="text-xl font-semibold text-left whitespace-nowrap text-black leading-7"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.3 }}

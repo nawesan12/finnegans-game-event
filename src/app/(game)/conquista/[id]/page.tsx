@@ -73,7 +73,7 @@ const ConquistaPage = () => {
     >
       {/* Header */}
       <motion.section
-        className="rounded-full w-full text-3xl flex items-center justify-between mb-10 py-2 px-8 bg-[#03001c]"
+        className="rounded-full w-full text-3xl flex items-center justify-between mb-8 mt-4 py-2 px-8 bg-[#03001c]"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -86,7 +86,7 @@ const ConquistaPage = () => {
 
       {/* Main Card */}
       <motion.main
-        className="w-full max-w-sm mx-auto"
+        className="w-full max-w-sm mx-auto bg-[#04102d]"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
@@ -118,10 +118,9 @@ const ConquistaPage = () => {
               />
             </motion.div>
             <h2
-              className="text-4xl font-semibold px-8 py-6"
+              className="text-4xl font-semibold px-8 py-6 text-right"
               style={{
                 color: station.color,
-                textAlign: station.textPosition as CanvasTextAlign,
               }}
             >
               {station.name}
@@ -130,12 +129,14 @@ const ConquistaPage = () => {
 
           <div>
             <h3
-              className="text-2xl px-8 py-6 pb-2 font-medium italic "
+              className="text-2xl px-8 py-6 pb-2 font-medium"
               style={{ color: station.color }}
             >
               {station.subtitle}
             </h3>
-            <p className="px-8 pb-8 font-thin text-xl">{station.content}</p>
+            <p className="px-8 pb-8 font-thin text-xl leading-tight">
+              {station.content}
+            </p>
           </div>
         </section>
       </motion.main>
@@ -199,7 +200,7 @@ const ConquistaPage = () => {
 
       {/* Footer */}
       <motion.footer
-        className="w-full pb-6 flex items-center justify-between gap-4"
+        className="w-full pb-6 flex items-center justify-between gap-4 bg-[#04102d]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4 }}

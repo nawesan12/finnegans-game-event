@@ -142,9 +142,9 @@ const App = () => {
             className={`py-1 text-md col-span-1 px-4 font-semibold rounded-full max-w-max w-full transition-all duration-300 ${
               allCompleted
                 ? "bg-transparent border-cyan-400 border-2"
-                : "bg-transparent border-cyan-400 border-2"
+                : "bg-transparent border-cyan-400 border-2 text-gray-200" //preguntarle a tats sobre este color
             }`}
-            disabled={allCompleted}
+            disabled={!allCompleted}
             animate={
               allCompleted
                 ? { scale: [1, 1.1, 1], boxShadow: "0 0 20px #22c55e55" }

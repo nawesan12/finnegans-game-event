@@ -16,8 +16,8 @@ export default function ResumenPage() {
   ];
 
   return (
-    <section className="h-svh max-h-svh bg-black p-12">
-      <div className="grid grid-cols-2 grid-rows-auto gap-0 h-full">
+    <section className="h-svh max-h-svh bg-[#04102d] p-12 flex items-center justify-center">
+      <div className="grid grid-cols-2 grid-rows-auto gap-0">
         {/* Imágenes con fade-in secuencial */}
         {images.map((image, index) => (
           <motion.div
