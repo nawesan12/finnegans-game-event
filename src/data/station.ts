@@ -14,6 +14,7 @@ export type Station = {
   };
   height?: number;
   textPosition: string;
+  size?: string;
 };
 
 export const stations: Station[] = [
@@ -32,6 +33,7 @@ export const stations: Station[] = [
       left: 32,
       rotation: "0deg",
     },
+    size: "70px",
     textPosition: "right",
   },
   {
@@ -45,10 +47,11 @@ export const stations: Station[] = [
     key: ["Excelencia", "Precisión", "Sobresaliente"],
     color: "#ff92de",
     position: {
-      top: -26,
-      left: 16,
+      top: -32,
+      left: 20,
       rotation: "-12deg",
     },
+    size: "110px",
     textPosition: "right",
   },
   {
@@ -62,11 +65,12 @@ export const stations: Station[] = [
     key: ["Trabajo en equipo", "Sinergia", "Cooperación"],
     color: "#fd8100",
     position: {
-      top: -32,
+      top: -36,
       left: 4,
       rotation: "0deg",
     },
     textPosition: "center",
+    size: "74px",
   },
   {
     id: "compromiso",
@@ -84,6 +88,7 @@ export const stations: Station[] = [
       rotation: "0deg",
     },
     textPosition: "left",
+    size: "80px",
   },
   {
     id: "creatividad",
@@ -96,11 +101,12 @@ export const stations: Station[] = [
     key: ["Innovación", "Originalidad", "Ingenio"],
     color: "#ff3f01",
     position: {
-      top: -24,
+      top: 0,
       left: -20,
       rotation: "0deg",
     },
     textPosition: "center",
+    size: "80px",
   },
   {
     id: "empatia",
@@ -113,11 +119,12 @@ export const stations: Station[] = [
     key: ["Comprensión", "Escucha activa", "Sensibilidad"],
     color: "#3985ff",
     position: {
-      top: -26,
-      left: 0,
+      top: -8,
+      left: -12,
       rotation: "0deg",
     },
     textPosition: "right",
+    size: "110px",
   },
   {
     id: "liderazgo",
@@ -131,9 +138,10 @@ export const stations: Station[] = [
     color: "#9fba02",
     position: {
       top: -32,
-      left: 24,
+      left: 12,
       rotation: "0deg",
     },
     textPosition: "right",
+    size: "96px",
   },
 ];

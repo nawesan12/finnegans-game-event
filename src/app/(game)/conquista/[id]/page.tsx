@@ -73,7 +73,7 @@ const ConquistaPage = () => {
     >
       {/* Header */}
       <motion.section
-        className="rounded-full w-full text-3xl flex items-center justify-between mb-8 mt-4 py-2 px-8 bg-[#03001c]"
+        className="rounded-full w-full text-3xl flex items-center justify-between mb-6 mt-4 py-2 px-8 bg-[#03001c]"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -107,13 +107,15 @@ const ConquistaPage = () => {
               <Image
                 src={station.icon}
                 alt={station.name}
-                width={200}
-                height={200}
-                className="absolute z-[9999] object-contain size-18"
+                width={300}
+                height={300}
+                className="absolute z-[9999] object-contain"
                 style={{
                   top: station?.position?.top,
                   left: station?.position?.left,
                   rotate: station?.position?.rotation,
+                  height: station?.size,
+                  width: station?.size,
                 }}
               />
             </motion.div>
