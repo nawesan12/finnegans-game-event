@@ -20,7 +20,7 @@ export type Station = {
 export const stations: Station[] = [
   {
     id: "proposito",
-    floor: 3,
+    floor: 5,
     name: "Propósito",
     icon: "/proposito.png",
     subtitle: "La dirección que elegimos",
@@ -38,7 +38,7 @@ export const stations: Station[] = [
   },
   {
     id: "calidad",
-    floor: 5,
+    floor: 3,
     name: "Calidad",
     icon: "/calidad.png",
     subtitle: "Excelencia en cada detalle",
@@ -74,7 +74,7 @@ export const stations: Station[] = [
   },
   {
     id: "compromiso",
-    floor: 7,
+    floor: 10,
     name: "Compromiso",
     icon: "/compromiso.png",
     subtitle: "Acción con propósito",
@@ -128,7 +128,7 @@ export const stations: Station[] = [
   },
   {
     id: "liderazgo",
-    floor: 10,
+    floor: 7,
     name: "Liderazgo",
     icon: "/liderazgo.png",
     subtitle: "Somos ejemplo",
