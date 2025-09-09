@@ -63,7 +63,7 @@ const App = () => {
               return (
                 <motion.a
                   key={station.id}
-                  href={isCompleted ? "#" : `/conquista/${station.id}`}
+                  href={`/conquista/${station.id}`}
                   className="p-[2px] py-px rounded-full block"
                   style={{
                     background: isCompleted

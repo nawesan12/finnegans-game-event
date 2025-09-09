@@ -19,7 +19,7 @@ const ConquistaPage = () => {
 
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState(false);
-  const formRef = useRef(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -40,7 +40,6 @@ const ConquistaPage = () => {
     } else {
       setError(true);
       setTimeout(() => {
-        //@ts-expect-error bla
         formRef.current?.reset();
         setError(false);
       }, 1700);
@@ -63,6 +62,9 @@ const ConquistaPage = () => {
   }
 
   const completedCount = stationProgress.filter((s) => s.completed).length;
+  const isCompleted = stationProgress.find(
+    (s) => s.id === station.id,
+  )?.completed;
 
   return (
     <motion.div
@@ -163,12 +165,16 @@ const ConquistaPage = () => {
         <input
           type="text"
           name="answer"
-          value={inputValue}
+          value={isCompleted ? "COMPLETADO" : inputValue}
           onChange={handleInputChange}
-          className="w-full mx-auto p-4 py-4 rounded-full bg-[#04102d] text-white pl-6 text-xl focus:outline-none focus:ring-2 transition-all duration-300 placeholder-white font-medium"
+          className="w-full mx-auto p-4 py-4 rounded-full bg-[#04102d] text-white pl-6 text-xl focus:outline-none  transition-all duration-300 placeholder-white font-medium"
           placeholder="Ingresa aquí la clave"
+          disabled={isCompleted}
+          style={{
+            textAlign: isCompleted ? "center" : "left",
+          }}
         />
-        {!error && (
+        {!error && !isCompleted && (
           <motion.button
             type="submit"
             whileHover={{ scale: 1.1 }}
